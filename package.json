@@ -1,0 +1,22 @@
+{
+  "name": "hackthonApi",
+  "version": "1.0.0",
+  "description": "An server that provide API for Hackathon demo App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Kudo Shinichi",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellohello101093/hackthonApi.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "firebase": "^3.2.1"
+  }
+}
