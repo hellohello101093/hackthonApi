@@ -23,6 +23,8 @@ app.use(express.static(__dirname + '/')); // serve up my index.html found in the
 
 app.get('/api/get', function (req, res) {
   var usersRef = hackathonDriver.database().ref("test");
+
+  
   usersRef.set({
     alanisawesome: {
       date_of_birth: "June 23, 1912",
