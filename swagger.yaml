@@ -1,0 +1,229 @@
+
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Hackathon API
+  description: API for Hackathon
+host: localhost:3000
+basePath: /api/v1
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  User:
+    type: object
+    properties:
+      name:
+        type: string
+      address:
+        type: string
+      age:
+        type: integer
+      sex:
+        type: boolean
+      education:
+        type: string
+      rating:
+        type: integer
+      description:
+        type: string
+      facebookId:
+        type: string
+      phone:
+        type: string
+  Subject:
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: integer
+  Class:
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: integer
+  Region:
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: integer
+  Request:
+    type: object
+    properties:
+      name:
+        type: string
+      userId:
+        type: string
+      timeStart:
+        type: string
+      timeEnd:
+        type: string
+      numberPeoples:
+        type: integer
+      price:
+        type: integer
+      description:
+        type: string
+
+
+paths:
+  /public/users/id/{id}:
+      parameters:
+        - name: id
+          description: User id
+          in: path
+          type: string
+          required: true
+      get:
+        description: Return info of user
+        operationId: getUser
+        responses:
+          200:
+            description: Return User info
+      put:
+        description: Return info of user
+        operationId: updateUserById
+        parameters:
+          - name: body
+            in: body
+            description: The updated user info
+            schema:
+              $ref: '#/definitions/User'
+        responses:
+          200:
+            description: Return User info
+
+  /public/users:
+    parameters:
+      - name: body
+        in:  body
+        description: Provide User Info to be added
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+    post:
+      description: Return info of user
+      operationId: createUser
+      responses:
+        200:
+          description: Return User info
+
+  /public/subjects:
+    parameters:
+      - name: body
+        in:  body
+        description: Provide Subject info
+        schema:
+          $ref: '#/definitions/Subject'
+    post:
+      description: Save subject info
+      operationId: createSubject
+      responses:
+        200:
+          description: Return Subject Info
+    get:
+      description: Get list subject info
+      operationId: listSubject
+      responses:
+        200:
+          description: Return List Subject Info
+
+  /public/classes:
+    parameters:
+      - name: body
+        in:  body
+        description: Provide Class info
+        schema:
+          $ref: '#/definitions/Class'
+    post:
+      description: Save class info
+      operationId: createClass
+      responses:
+        200:
+          description: Return Region Info
+    get:
+      description: Get list class info
+      operationId: listClass
+      responses:
+        200:
+          description: Return List Class Info
+
+  /public/regions:
+    parameters:
+      - name: body
+        in:  body
+        description: Provide Region info
+        schema:
+          $ref: '#/definitions/Region'
+    post:
+      description: Save region info
+      operationId: createRegion
+      responses:
+        200:
+          description: Return Region Info
+    get:
+      description: Get list region info
+      operationId: listRegion
+      responses:
+        200:
+          description: Return List Region Info
+
+  /public/request/id/{id}:
+      parameters:
+        - name: id
+          description: Request id
+          in: path
+          type: string
+          required: true
+      get:
+        description: Return info of request
+        operationId: getRequest
+        responses:
+          200:
+            description: Return Request info
+      delete:
+        description: Delete request
+        operationId: removeRequestById
+        responses:
+          200:
+            description: Return Request info
+      put:
+        description: Edit Request Info
+        operationId: updateRequestById
+        parameters:
+          - name: body
+            in: body
+            description: The updated request info
+            schema:
+              $ref: '#/definitions/Request'
+        responses:
+          200:
+            description: Return Request info
+
+  /public/request:
+    parameters:
+      - name: body
+        in:  body
+        description: Provide Request info
+        schema:
+          $ref: '#/definitions/Request'
+    post:
+      description: Save request info
+      operationId: createRequest
+      responses:
+        200:
+          description: Return Request Info
+    get:
+      description: Get request info
+      operationId: listRequest
+      responses:
+        200:
+          description: Return List Request Info

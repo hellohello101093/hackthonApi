@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "NODE_ENV=local node server/server.js"
   },
   "author": "Kudo Shinichi",
   "license": "ISC",
@@ -14,9 +14,19 @@
     "url": "https://github.com/hellohello101093/hackthonApi.git"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.11.6",
     "body-parser": "^1.13.3",
+    "consul-locator": "^1.1.4",
     "cors": "^2.7.1",
-    "express": "^4.13.3",
-    "firebase": "^3.2.1"
+    "express": "^4.14.0",
+    "firebase": "^3.2.1",
+    "lodash": "^4.14.1",
+    "swagger-express-middleware": "^1.0.0-alpha.12"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
